@@ -1,36 +1,29 @@
 package com.jamiemcmenemy.taskflow.controller;
 
-import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.web.bind.annotation.*;
-
-import com.jamiemcmenemy.taskflow.model.Task;
+import com.jamiemcmenemy.taskflow.dto.TaskDto;
 import com.jamiemcmenemy.taskflow.service.TaskService;
 
-@RestController
-@RequestMapping("/tasks")
-public class TaskController {
-    TaskService taskService;
-    
-    public TaskController(TaskService taskService){
-        this.taskService = taskService;
-    }
-    @GetMapping("/{id}")
-    public Task getTask(@PathVariable Long id){
-        return taskService.getTaskByID(id);
-    }
-    @PostMapping
-    public String testPost(){
-        return "tasks post";
-    }
-    
-    @PutMapping
-    public String testPut(){
-        return "tasks put";
-    }
+import lombok.AllArgsConstructor;
 
-    @DeleteMapping
-    public String testDelete(){
-        return "tasks delete";
+@AllArgsConstructor
+@RestController
+@RequestMapping("/api/tasks")
+public class TaskController {
+    
+    private TaskService taskService;
+    
+    // Build add task rest API
+
+    @PostMapping
+    public ResponseEntity<TaskDto> createTask(@RequestBody TaskDto taskDto){
+        TaskDto createdTask = taskService.createTask(taskDto);
+        return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
 }
