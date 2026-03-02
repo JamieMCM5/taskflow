@@ -30,7 +30,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskDto getTaskByID(Long taskId) {
-        Task task = taskRepository.findById(taskId).orElseThrow(() -> new ResourceNotFoundException("Task with given ID does not exist." + taskId));
+        Task task = taskRepository.findById(taskId).orElseThrow(() -> new ResourceNotFoundException("Task with given ID does not exist. " + taskId));
         TaskDto foundTask = TaskMapper.mapToTaskDto(task);
         return foundTask;
     }
@@ -43,5 +43,33 @@ public class TaskServiceImpl implements TaskService {
             
         return taskDtos;
     }
+
     
+    @Override
+    public void deleteTask(Long taskId){
+        @SuppressWarnings("unused")
+        Task task = taskRepository.findById(taskId)
+            .orElseThrow(() -> new ResourceNotFoundException("Task with given ID does not exist. " + taskId));
+        taskRepository.deleteById(taskId);
+    }
+    
+
+    @Override
+    public void deleteAllTasks(){
+        taskRepository.deleteAll();
+    }
+    
+    @Override
+    public TaskDto updateTask(Long taskId, TaskDto updatedTask) {
+        Task task = taskRepository.findById(taskId).orElseThrow(
+            () -> new ResourceNotFoundException("Task with given ID does not exist. " + taskId)
+        );
+        task.setTitle(updatedTask.getTitle());
+        task.setDescription(updatedTask.getDescription());
+        task.setCompleted(updatedTask.getCompleted());
+        
+        Task updatedTaskObj = taskRepository.save(task);
+        
+        return TaskMapper.mapToTaskDto(updatedTaskObj);
+    }
 }
