@@ -4,7 +4,7 @@ import com.jamiemcmenemy.taskflow.dto.TaskDto;
 import com.jamiemcmenemy.taskflow.entity.Task;
 
 /**
- * This class maps the data from the Task entity and the TaskDto object and vice versa for client-server data transfer.
+ * This class maps the data from the Task entity to the TaskDto object and vice versa for client-server data transfer.
  */
 public class TaskMapper {
     public static TaskDto mapToTaskDto(Task task){

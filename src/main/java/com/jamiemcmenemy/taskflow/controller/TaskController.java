@@ -24,8 +24,6 @@ import lombok.AllArgsConstructor;
 public class TaskController {
     
     private TaskService taskService;
-    
-    // Build add task rest API
 
     @PostMapping
     public ResponseEntity<TaskDto> createTask(@RequestBody TaskDto taskDto){

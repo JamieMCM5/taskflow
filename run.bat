@@ -1,6 +1,6 @@
 @echo off
 echo Cleaning and building project...
-call mvnw.cmd clean package -DskipTests
+call mvnw.cmd clean package 
 
 if %errorlevel% neq 0 (
     echo Build failed.
