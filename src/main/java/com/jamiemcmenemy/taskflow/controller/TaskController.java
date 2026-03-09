@@ -59,5 +59,4 @@ public class TaskController {
         TaskDto taskDto = taskService.updateTask(taskId, updatedTask);
         return ResponseEntity.ok(taskDto);
     }
-
 }
