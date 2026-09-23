@@ -2,6 +2,7 @@ package com.jamiemcmenemy.taskflow.dto;
 
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,8 +16,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TaskDto {
     private Long id;
+    @NotBlank(message = "Title cannot be blank")
     private String title;
     private String description;
-    private Boolean completed;
+    private boolean completed;
     private LocalDateTime createdAt; 
 }

@@ -9,5 +9,4 @@ class TaskflowApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

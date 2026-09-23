@@ -22,7 +22,7 @@ public class TaskMapper {
             taskDto.getId(),
             taskDto.getTitle(),
             taskDto.getDescription(),
-            taskDto.getCompleted(),
+            taskDto.isCompleted(),
             taskDto.getCreatedAt()
         );
     }

@@ -66,7 +66,7 @@ public class TaskServiceImpl implements TaskService {
         );
         task.setTitle(updatedTask.getTitle());
         task.setDescription(updatedTask.getDescription());
-        task.setCompleted(updatedTask.getCompleted());
+        task.setCompleted(updatedTask.isCompleted());
         
         Task updatedTaskObj = taskRepository.save(task);
         

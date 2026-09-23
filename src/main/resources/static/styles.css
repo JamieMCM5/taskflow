@@ -1,0 +1,134 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 640px;
+  margin: 48px auto;
+  padding: 0 20px;
+  color: #263238;
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 24px;
+  color: #1f2933;
+}
+
+#createForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+#title {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#description {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #2563eb;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+#tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#tasks li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid #d7dee8;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+#tasks li .task-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+
+#tasks li h3 {
+  margin: 0 0 6px;
+  color: #1f2933;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+#tasks li p {
+  margin: 0 0 8px;
+  color: #64748b;
+  overflow-wrap: anywhere;
+}
+
+#tasks li small {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+#tasks li button {
+  flex: 0 0 auto;
+  background: #dc2626;
+}
+
+#tasks li button:hover {
+  background: #b91c1c;
+}
+
+#tasks li input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  #createForm {
+    flex-direction: column;
+  }
+
+  #tasks li {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #tasks li button {
+    margin-left: auto;
+  }
+}
